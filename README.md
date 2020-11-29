@@ -34,21 +34,21 @@ ETL process loads the data from the logs to users, time and songplays table and 
 
 Songplays ETL load from the log data confirms that the song and artist information is not available in the dimension tables. It seems the data is missing in the dimension tables and that issue needs to be fixed.
 
-#### Data Screen Shots
-Songplays Table Snapshot
-![ Songplays Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/artists.png)
+#### Sample Data Screen Shots
+Songplays Table Sample Data
+![ Songplays Table Sample Data](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/artists.png)
 
-Users Table Snapshot
-![User Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/users.png)
+Users Table Sample Data
+![User Table Sample Data](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/users.png)
 
-Songs Table Snapshot
-![Songs Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/songs.png)
+Songs Table Sample Data
+![Songs Table Sample Data](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/songs.png)
 
-Artists Table Snapshot
-![Artists Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/artists.png)
+Artists Table Sample Data
+![Artists Table Sample Data](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/artists.png)
 
-Time Table Snapshot
-![Time Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/time.png)
+Time Table Sample Data
+![Time Table Sample Data](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/time.png)
 
 #### ETL Report for given DataSet
     songplays - 6820 Records Loaded
