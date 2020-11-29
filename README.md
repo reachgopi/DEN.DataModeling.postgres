@@ -28,11 +28,27 @@ Sparkify DB is created using a star schema and optimized for song play analysis 
     time - time table gives information about the actual playback time of the songs with specific units captured 
 
 #### Schema Design and ETL Pipeline 
-    Sparkify DB is designed using a star schema with the above mentioned fact and dimension tables particularly to easily analyze the song playback data. Data is modeled in such a way that it fits 3N form and all the song, artist, users and time are part of dimension tables and that fact tables have appropriate id's from those dimension tables to avoid redundant information getting stored in the fact table.
+Sparkify DB is designed using a star schema with the above mentioned fact and dimension tables particularly to easily analyze the song playback data. Data is modeled in such a way that it fits 3N form and all the song, artist, users and time are part of dimension tables and that fact tables have appropriate id's from those dimension tables to avoid redundant information getting stored in the fact table.
 
-    ETL process loads the data from the logs to users, time and songplays table and when populating data to users tables and whenever there is a conflict on user id it updates the user level information so that the user updated subscription status is captured in the table.
+ETL process loads the data from the logs to users, time and songplays table and when populating data to users tables and whenever there is a conflict on user id it updates the user level information so that the user updated subscription status is captured in the table.
 
-    Songplays ETL load from the log data confirms that the song and artist information is not available in the dimension tables. It seems the data is missing in the dimension tables and that issue needs to be fixed.
+Songplays ETL load from the log data confirms that the song and artist information is not available in the dimension tables. It seems the data is missing in the dimension tables and that issue needs to be fixed.
+
+#### Data Screen Shots
+Songplays Table Snapshot
+![ Songplays Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/artists.png)
+
+Users Table Snapshot
+![User Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/users.png)
+
+Songs Table Snapshot
+![Songs Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/songs.png)
+
+Artists Table Snapshot
+![Artists Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/artists.png)
+
+Time Table Snapshot
+![Time Table Snapshot](https://github.com/reachgopi/DEN.DataModeling.postgres/blob/develop/images/time.png)
 
 #### ETL Report for given DataSet
     songplays - 6820 Records Loaded
