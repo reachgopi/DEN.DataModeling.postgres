@@ -30,6 +30,8 @@ def process_log_file(cur, filepath):
         from the songs and artists table based on artist name, song name and duration.
     '''
     # open log file
+    counter = 0
+    print(pd.__version__)
     df = pd.read_json(filepath,lines=True)
 
     # filter by NextSong action
@@ -45,9 +47,11 @@ def process_log_file(cur, filepath):
                  'hour': df_updated_datetime.dt.hour,
                  'day': df_updated_datetime.dt.day,
                  'week': df_updated_datetime.dt.weekofyear, 
-                 'month': df_updated_datetime.dt.month,
+                 'month': df_updated_datetime.dt.month_name(),
                  'year': df_updated_datetime.dt.year, 
-                 'weekday': df_updated_datetime.dt.weekday})
+                 'weekday': df_updated_datetime.dt.day_name()})
+
+    
 
     for i, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
@@ -60,7 +64,7 @@ def process_log_file(cur, filepath):
         cur.execute(user_table_insert, row)
 
     # insert songplay records
-    for index, row in df.iterrows():
+    for index, row in df_updated.iterrows():
         
         # get songid and artistid from song and artist tables
         results = cur.execute(song_select, (row.song, row.artist, row.length))
@@ -71,6 +75,7 @@ def process_log_file(cur, filepath):
 
         userId = -1
         if row['userId'] == '' :
+            counter += 1
             userId = -1
         else:
             userId = row['userId']
@@ -78,6 +83,8 @@ def process_log_file(cur, filepath):
         songplay_data = [ val , userId, row['level'], songid, artistid, row['sessionId'],row['location'], row['userAgent']]
         
         cur.execute(songplay_table_insert, songplay_data)
+    
+    print("Data set contains {} empty user records".format(counter))
 
 
 def process_data(cur, conn, filepath, func):
